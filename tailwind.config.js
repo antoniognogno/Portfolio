@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       colors: {
         'navy' : '#011222',
+      },
+      backgroundImage: {
+        'blue-dust': "url('./src/img/bg.jpg')",
       }
     },
   },
