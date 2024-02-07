@@ -1,16 +1,16 @@
 body {
     background-image: url('../src/img/Progetto\ senza\ titolo\ \(3\).png');
     background-size: 100% 50%;
-    min-height: 100vh;
+    height: 100%;
     overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: #011222;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -22,11 +22,11 @@ body {
     background-color: #1c6985;
 }
 
-.title1 {
+.title2 {
     animation: 2.5s ease-out 0s 1 slideInLeft;
 }
 
-.title2 {
+.title1 {
     animation-fill-mode: forwards;
     animation: 2s ease-out 0.6s 1 slideInRight;
 }
@@ -68,6 +68,14 @@ body {
     to { scale: 1 1; }
 }
 
+/*    background-color: #011222;*/
+
+
+@keyframes fade-in {
+    from { scale: 1; opacity: 1; }
+    to { scale: .1; opacity: 0; }
+}
+
 .immagine {
     transform-origin: center;
     animation: fade-in linear forwards;
@@ -78,15 +86,9 @@ body {
     border-color: #2a99c2;
     box-shadow: -30px 10px 100px black;
     filter: none;
-    -webkit-filter: grayscale(0);
-    width: 45%;
-    height: 45%;
+    width: 40%;
+    height: 40%;
     margin-bottom: 50px;
-}
-
-.img:hover {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
 }
 
 @keyframes fade-in {
@@ -102,9 +104,78 @@ section {
 .card {
     width: 80%;
     transform-origin: right;
-    animation: fade-in linear forwards;
+    animation: fade-in-card linear forwards;
     animation-timeline: view();
-    animation-range-start: cover;
-    animation-range-end: 700px;
+    animation-range-start: content;
+    animation-range-end: 300px;
 }
 
+@keyframes fade-in-card {
+    from { scale: .1; opacity: 0; }
+    to { scale: 1; opacity: 1; }
+}
+
+.scroll {
+    position: relative;
+    display: flex;
+    width: 90%;
+    overflow: hidden;
+    -webkit-mesh-image: linear-gradient(90deg, transparent, #fff 20, #fff 80%, transparent);
+}
+
+.scroll div {
+    white-space: nowrap;
+    animation: animate var(--t) linear infinite;
+    animation-delay: calc(var(--t) * -1);
+}
+
+@keyframes animate {
+    from { transform: translateX(100%);}
+    to {transform: translateX(-100%);}
+}
+
+.scroll div:nth-child(2) {
+    animation: animate2 var(--t) linear infinite;
+    animation-delay: calc(var(--t) /-2);
+}
+
+@keyframes animate2 {
+    from { transform: translateX(0);}
+    to {transform: translateX(-200%);}
+}
+.scroll div span {
+    display: inline-flex;
+    letter-spacing: 0.2em;
+    margin: 10px;
+    background: #011222;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.scroll div span:hover {
+    cursor: pointer;
+    background-color: #2a99c2;
+}
+
+.scroll-bg {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;    
+}
+
+.onLoad {
+    background-color: #011222;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;    
+}
+
+.terza {
+    margin-top: 100vh;
+}
