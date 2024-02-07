@@ -5,16 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./dist/output.css" rel="stylesheet">
   <link href="./dist/style.css" rel="stylesheet">
+  <script type="text/javascript" src="./dist/script.js"></script>
   <title>Antonio's Portfolio</title>
 </head>
 <body>
     <div class="scroll-watcher"></div>
    
     <div id="inizio" class="w-full">
-
         <section class="onLoad">
-            <p class="onLoadContent">ciao</p>
+            <div class="onLoadContent grid grid-cols-2 h-full mt-10">
+                <div>
+                    <img src="./src/img/LOGO Antonio (1).png" alt="Me!" class="logo rounded-full">
+            </div>
+                    <!-- <p class="nome">Tony</p> -->
+                <p class="fade-text"></p>
+            </div>
         </section>
+
+        <script>
+            const listaLinguaggi = [
+                'C/C++',
+                'PHP',
+                'JAVA',
+                'JAVASCRIPT',
+                'PYTHON',
+                'HTML/CSS',
+                'VUE.JS',
+                'NODE.JS',
+                'TAILWIND CSS',
+                'REACT (WIP)',
+                'REACT NATIVE (WIP)',
+                ''
+                ]
+
+
+                let counter = 0; // Contatore per tenere traccia dell'indice corrente
+
+                // Funzione per cambiare il testo
+                
+                function changeText() {
+                    const elem = document.querySelector(".fade-text");
+                    elem.classList.remove("show"); // Nascondi il testo
+                    setTimeout(() => {
+                        console.log(counter)
+                        if(counter == 11) {
+                            elem.textContent = listaLinguaggi[counter];
+                            elem.classList.add("show"); // Mostra il testo con animazione di fade-in
+                            clearInterval(looper);
+                        }
+                        elem.textContent = listaLinguaggi[counter];
+                        elem.classList.add("show"); // Mostra il testo con animazione di fade-in
+                        counter = (counter + 1) % listaLinguaggi.length; // Loop all'indice
+                    }, 1000); // Cambia ogni 2 secondi (2000 millisecondi)
+                }
+
+                // Esegui la funzione all'avvio e poi ogni 2 secondi
+                changeText();
+                var looper = setInterval(changeText, 1400);
+
+        </script>
 
         <section class="prima">
             <div class="grid grid-cols-1 md:grid-cols-2 h-full mt-10 ">
