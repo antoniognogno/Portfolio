@@ -12,75 +12,39 @@
     <div class="scroll-watcher"></div>
    
     <div id="inizio" class="w-full">
-        <section class="onLoad">
+        <section class="onLoad" id="elementToScroll">
             <div class="onLoadContent grid grid-cols-2 h-full mt-10">
                 <div>
                     <img src="./src/img/LOGO Antonio (1).png" alt="Me!" class="logo rounded-full">
-            </div>
-                    <!-- <p class="nome">Tony</p> -->
+                </div>
                 <p class="fade-text"></p>
             </div>
+            <div id="counter">0</div>
         </section>
-
-        <script>
-            const listaLinguaggi = [
-                'C/C++',
-                'PHP',
-                'JAVA',
-                'JAVASCRIPT',
-                'PYTHON',
-                'HTML/CSS',
-                'VUE.JS',
-                'NODE.JS',
-                'TAILWIND CSS',
-                'REACT (WIP)',
-                'REACT NATIVE (WIP)',
-                ''
-                ]
-
-
-                let counter = 0; // Contatore per tenere traccia dell'indice corrente
-
-                // Funzione per cambiare il testo
-                
-                function changeText() {
-                    const elem = document.querySelector(".fade-text");
-                    elem.classList.remove("show"); // Nascondi il testo
-                    setTimeout(() => {
-                        console.log(counter)
-                        if(counter == 11) {
-                            elem.textContent = listaLinguaggi[counter];
-                            elem.classList.add("show"); // Mostra il testo con animazione di fade-in
-                            clearInterval(looper);
-                        }
-                        elem.textContent = listaLinguaggi[counter];
-                        elem.classList.add("show"); // Mostra il testo con animazione di fade-in
-                        counter = (counter + 1) % listaLinguaggi.length; // Loop all'indice
-                    }, 1000); // Cambia ogni 2 secondi (2000 millisecondi)
-                }
-
-                // Esegui la funzione all'avvio e poi ogni 2 secondi
-                changeText();
-                var looper = setInterval(changeText, 1400);
-
-        </script>
-
-        <section class="prima">
-            <div class="grid grid-cols-1 md:grid-cols-2 h-full mt-10 ">
-                <div class="col-span-1 md:col-span-1 justify-center md:justify-start items-center md:h-screen">
-                    <div class="title2 m-auto font-extralight text-6xl md:text-8xl font-serif italic text-center">a <div class="onBlack"><div class="underline">determined</div> person</div></div>
-                </div>
-                <div class="col-span-1 md:col-span-1 flex justify-center md:justify-end items-center md:h-screen">
-                    <div class="title1 m-auto font-extralight text-6xl md:text-8xl font-serif italic text-center">Antonio Iorio</div>
+        <section id="prima" class="prima">
+            <div class="card rounded-md overflow-hidden shadow-xl m-auto bg-white mt-5">
+                <div class="px-10 py-10 text-center text-xl">
+                    "Well, I guess you never get a second chance to make a first impression, so I will try not to make it awkward."
                 </div>
             </div>
+
+
+
+            <!-- <div class="title-card grid grid-cols-1 md:grid-cols-2 h-full mt-10">
+                <div class="col-span-1 md:col-span-1 justify-center md:justify-start items-center md:h-screen">
+                    <div class="title2 m-auto font-extralight text-6xl md:text-8xl font-serif italic text-center">I guess you never get a second chance to make a <div class="underline-title">first impression,</div></div>
+                </div>
+                <div class="col-span-1 md:col-span-1 flex justify-center md:justify-end items-center md:h-screen">
+                    <div class="title1 m-auto font-extralight text-6xl md:text-8xl font-serif italic text-center">so I will try not to make it <div class="underline-title">awkward</div></div>
+                </div> -->
+            </div>
         </section>
-        <div>
+        <!-- <div>
             <img src="src/img/Disegno-removebg-preview.png" alt="Me!" class="rounded-full w-1/2 h-1/2">
         </div>
-        <section class="seconda">
+        <section class="seconda"> -->
             <div>
-                <img src="./src/img/Antonio.jpg" alt="Me!" class="immagine m-auto rounded-full">
+                <img src="./src/img/Antonio-removebg-preview.png" alt="Me!" class="immagine m-auto rounded-full">
             </div>
             <div class="card rounded-md overflow-hidden shadow-xl m-auto bg-white">
                 <div class="px-10 py-10">
@@ -249,5 +213,77 @@
             </div>
         </div>
     </div>-->
+    <script>
+        let counterElement = document.getElementById('counter');
+        var counterValue = 0;
+        // var counterValue = 99;
+
+        function updateCounter() {
+            if (counterValue <= 100) {
+            counterElement.innerText = counterValue;
+            counterValue++;
+            setTimeout(updateCounter, 155); // Aggiorna ogni 100 millisecondi
+            if (counterValue == 100) {
+                let elementToScroll = document.getElementById('elementToScroll');
+                let contentBelow = document.getElementById('prima'); // Sostituisci 'contentBelow' con l'id del tuo elemento di contenuto
+
+                elementToScroll.style.transition = 'transform 2s ease'; // Aggiungi una transizione
+                elementToScroll.style.transform = 'translateY(-100%)'; // Sposta l'elemento verso l'alto
+            
+                elementToScroll.addEventListener('transitionend', function() {
+                    // Questo blocco di codice verrà eseguito quando l'animazione sarà completata
+                    // Puoi modificare o mostrare il contenuto qui
+                    contentBelow.style.display = 'block'; // Ad esempio, mostra il contenuto
+                })
+            }
+
+        }}
+        
+        // Chiamare la funzione per avviare il contatore
+        updateCounter();
+        
+        
+
+
+        const listaLinguaggi = [
+            'C/C++',
+            'PHP',
+            'JAVA',
+            'JAVASCRIPT',
+            'PYTHON',
+            'HTML/CSS',
+            'VUE.JS',
+            'NODE.JS',
+            'TAILWIND CSS',
+            'REACT (WIP)',
+            'REACT NATIVE (WIP)',
+            ''
+            ]
+
+            let counterTextChange = 0; // Contatore per tenere traccia dell'indice corrente
+
+            // Funzione per cambiare il testo
+            
+            function changeText() {
+                const elem = document.querySelector(".fade-text");
+                elem.classList.remove("show"); // Nascondi il testo
+                setTimeout(() => {
+                    console.log(counterTextChange)
+                    if(counterTextChange == 11) {
+                        elem.textContent = listaLinguaggi[counterTextChange];
+                        elem.classList.add("show"); // Mostra il testo con animazione di fade-in
+                        clearInterval(looper);
+                    }
+                    elem.textContent = listaLinguaggi[counterTextChange];
+                    elem.classList.add("show"); // Mostra il testo con animazione di fade-in
+                    counterTextChange = (counterTextChange + 1) % listaLinguaggi.length; // Loop all'indice
+                }, 1000); // Cambia ogni 2 secondi (2000 millisecondi)
+            }
+
+            // Esegui la funzione all'avvio e poi ogni 2 secondi
+            changeText();
+            var looper = setInterval(changeText, 1400);
+
+    </script>
 </body>
 </html>

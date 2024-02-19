@@ -181,19 +181,6 @@ section {
     align-items: center;
     justify-content: center;
 }
-/* 
-.onLoad {
-    color: white;
-    background-color: #011222;
-} */
-
-.nome {
-    margin-top: 50vh;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: end;
-    margin-right: 10px;
-}
 
 .logo {
     margin-top: 43vh;
@@ -213,4 +200,30 @@ section {
 }
 .fade-text.show {
     opacity: 1; /* Visibile */
+}
+
+#counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+}
+
+.prima {
+    position: absolute;
+    top: 0%;
+    display: none;
+}
+
+
+.underline-title{
+    text-decoration: #2a99c2 underline;
+}
+
+.title-card {
+    background-color: #011222;
+    width: 90%;
+    height: 90vh;
+    margin: auto;
 }
