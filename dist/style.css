@@ -3,6 +3,7 @@ body {
     background-size: 100% 50%;
     height: 100%;
     overflow-x: hidden;
+    /* background-color: #011222; */
 }
 
 ::-webkit-scrollbar {
@@ -147,7 +148,7 @@ section {
     display: inline-flex;
     letter-spacing: 0.2em;
     margin: 10px;
-    background: #011222;
+    background: #1c6985;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -188,7 +189,18 @@ section {
     margin-right: 10px;
     width: 20vh;
     height: 20vh;
+    /* animation: 2s ease-in-out 0s 1 slideInTop; */
 }
+
+@keyframes slideInTop {
+    from {
+      transform: translateY(-250%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
 
 .fade-text {
     margin-top: 50vh;
@@ -197,7 +209,18 @@ section {
     font-weight: bold;
     opacity: 0; /* Inizialmente invisibile */
     transition: opacity 1s ease; /* Durata e tipo di transizione */
+    /* animation: 2s ease-in-out 0s 1 slideInBottom; */
 }
+
+@keyframes slideInBottom {
+    from {
+      transform: translateY(250%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
 .fade-text.show {
     opacity: 1; /* Visibile */
 }

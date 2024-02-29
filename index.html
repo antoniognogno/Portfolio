@@ -1,11 +1,26 @@
 <!doctype html>
 <html leng="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./dist/output.css" rel="stylesheet">
-  <link href="./dist/style.css" rel="stylesheet">
-  <script type="text/javascript" src="./dist/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link href="./dist/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EaselPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/PixiPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
   <title>Antonio's Portfolio</title>
 </head>
 <body>
@@ -20,9 +35,15 @@
                 <p class="fade-text"></p>
             </div>
             <div id="counter">0</div>
+
+            <script>
+                gsap.fromTo( ".logo",{ y: -1000, duration: 2, opacity: 0 }, { y: 0, duration: 2, opacity: 1 })
+                gsap.fromTo( ".fade-text",{ y: 1000, duration: 2, }, { y: 0, duration: 2, })
+
+            </script>
         </section>
         <section id="prima" class="prima">
-            <div class="card rounded-md overflow-hidden shadow-xl m-auto bg-white mt-5">
+            <div class="first-card card rounded-md overflow-hidden shadow-xl m-auto bg-white mt-5">
                 <div class="px-10 py-10 text-center text-xl">
                     "Well, I guess you never get a second chance to make a first impression, so I will try not to make it awkward."
                 </div>
@@ -41,8 +62,8 @@
         </section>
         <!-- <div>
             <img src="src/img/Disegno-removebg-preview.png" alt="Me!" class="rounded-full w-1/2 h-1/2">
-        </div>
-        <section class="seconda"> -->
+        </div> -->
+        <section class="seconda">
             <div>
                 <img src="./src/img/Antonio-removebg-preview.png" alt="Me!" class="immagine m-auto rounded-full">
             </div>
@@ -231,10 +252,13 @@
                 elementToScroll.style.transform = 'translateY(-100%)'; // Sposta l'elemento verso l'alto
             
                 elementToScroll.addEventListener('transitionend', function() {
-                    // Questo blocco di codice verrà eseguito quando l'animazione sarà completata
-                    // Puoi modificare o mostrare il contenuto qui
-                    contentBelow.style.display = 'block'; // Ad esempio, mostra il contenuto
-                })
+            // Ritardo di 2 secondi prima di mostrare il contenuto
+            setTimeout(function() {
+                // Questo blocco di codice verrà eseguito quando l'animazione sarà completata
+                // Puoi modificare o mostrare il contenuto qui
+                contentBelow.style.display = 'block'; // Ad esempio, mostra il contenuto
+            }, 2000); // Ritardo di 2 secondi (2000 millisecondi)
+        });
             }
 
         }}
